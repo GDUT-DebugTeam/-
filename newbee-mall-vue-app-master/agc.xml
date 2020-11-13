@@ -1,0 +1,274 @@
+<bookstore>
+<book category="COOKING">
+  <title lang="en">Everyday Italian</title> 
+  <author>Giada De Laurentiis</author> 
+  <year>2005</year> 
+  <price>30.00</price> 
+</book>
+<book category="CHILDREN"><!-- 在这里严的发生格需要标签需要关闭，避免不安全事件-->
+  <title lang="en">Harry Potter</title> <!-- xml中严格区分大小写-->
+  <author>J K. Rowling</author> <!--xml中必须严格按照顺序进行关闭标签-->
+  <year>2005</year> 
+  <price>29.99</price> 
+</book>
+<book category="WEB">
+  <title lang="en">Learning XML</title> 
+  <author>Erik T. Ray</author> 
+  <year>2003</year> 
+  <price>39.95</price> 
+</book>
+</bookstore>
+
+
+
+<!--------------------------------------------------------------->
+<!--在xml中必须要有根目录-->
+<root>
+  <child>
+    <subchild>.....</subchild>
+  </child>
+</root>
+<!--在这里root是根目录-->
+<!--------------------------------------------------------------->
+<!--XML 的属性值须加引号
+与 HTML 类似，XML 也可拥有属性（名称/值的对）。
+在 XML 中，XML 的属性值须加引号。请研究下面的两个 XML 文档。
+第一个是错误的，第二个是正确的.-->
+<note date="08/08/2010"><!--属性值必须加双引号-->
+<to>Victor</to>
+<from>Qiqing</from>
+<date>you must remember open the door</date>
+</note>
+<!--这是正确的-->
+<!--   <note date =08/08/2010> </note>例如这样的例子是错误的     -->
+
+<!--实体引用
+    在 XML 中，一些字符拥有特殊的意义。
+    如果你把字符 "<" 放在 XML 元素中，会发生错误，这是因为解析器会把它当作新元素的开始。
+    这样会产生 XML 错误：-->
+<!--<message>if salary<1000 </message> <!--这样的例子则是错误的---->
+<message> if salary &lt; 10000</message>
+<!--在XML中有五个预定义的实体引用
+    &lt;    <   小于
+    &gt;    >   大于
+    &amp;   &   和号
+    &apos;  '   单引号
+    &quot;  "   引号
+    而且在XML中在 XML 中，空格会被保留   
+-->
+<!--
+    XML 以 LF 存储换行
+    在 Windows 应用程序中，换行通常以一对字符来存储：
+    回车符 (CR) 和换行符 (LF)。
+    这对字符与打字机设置新行的动作有相似之处。
+    在 Unix 应用程序中，新行以 LF 字符存储。
+    而 Macintosh 应用程序使用 CR 来存储新行。
+-->
+<!--XML文档中包含XML元素
+        XML元素指的是从开始标签直到结束标签的部分。
+        元素包含其他元素、文本或者两者的混合物。
+        元素也可以拥有属性
+-->
+<bookstore>
+    <book category ="CHILDREN">
+        <title>Harry Potter</title>
+        <author>J K.Rowlling</author>
+        <year>2005</year>
+        <price> 29.99</price>
+    </book>
+</bookstore>
+<!-- <book> 元素拥有属性 (category="CHILDREN")。
+    XML 命名规则
+    XML 元素必须遵循以下命名规则：
+    名称可以含字母、数字以及其他的字符
+    名称不能以数字或者标点符号开始
+    名称不能以字符 “xml”（或者 XML、Xml）开始
+    名称不能包含空格
+    可使用任何名称，没有保留的字词。
+    最佳命名习惯
+    使名称具有描述性。使用下划线的名称也很不错。
+    名称应当比较简短，比如：<book_title>，而不是：<the_title_of_the_book>。
+    避免 "-" 字符。如果您按照这样的方式进行命名："first-name"，一些软件会认为你需要提取第一个单词。
+    避免 "." 字符。如果您按照这样的方式进行命名："first.name"，一些软件会认为 "name" 是对象 "first" 的属性。
+    避免 ":" 字符。冒号会被转换为命名空间来使用（稍后介绍）。
+    XML 文档经常有一个对应的数据库，其中的字段会对应 XML 文档中的元素。有一个实用的经验，即使用数据库的名称规则来命名 XML 文档中的元素。
+    非英语的字母比如 éòá 也是合法的 XML 元素名，不过需要留意当软件开发商不支持这些字符时可能出现的问题。
+-->
+<!--
+    XML 元素是可扩展的
+    XML 元素是可扩展，以携带更多的信息。
+    请看下面这个 XML 例子：
+        <note>
+            <to>George</to>
+            <from>John</from>
+            <body>Don't forget the meeting!</body>
+        </note> 
+    让我们设想一下，我们创建了一个应用程序，可将 <to>、<from> 以及 <body> 元素提取出来，并产生以下的输出：
+    MESSAGE
+        To: George
+        From: John
+
+    Don't forget the meeting!
+    想象一下，之后这个 XML 文档作者又向这个文档添加了一些额外的信息：
+    <note>
+        <date>2008-08-08</date>
+        <to>George</to>
+        <from>John</from>
+        <heading>Reminder</heading>
+        <body>Don't forget the meeting!</body>
+    </note>
+    那么这个应用程序会中断或崩溃吗？
+    不会。这个应用程序仍然可以找到 XML 文档中的 <to>、<from> 以及 <body> 元素，并产生同样的输出。
+    XML 的优势之一，就是可以经常在不中断应用程序的情况进行扩展。
+-->
+<!--
+    XML 元素 vs. 属性
+    请看这些例子：
+        <person sex="female">
+            <firstname>Anna</firstname>
+            <lastname>Smith</lastname>
+        </person> 
+
+        <person>
+            <sex>female</sex>
+            <firstname>Anna</firstname>
+            <lastname>Smith</lastname>
+        </person> 
+    在第一个例子中，sex 是一个属性。
+    在第二个例子中，sex 则是一个子元素。
+    两个例子均可提供相同的信息。
+        没有什么规矩可以告诉我们什么时候该使用属性，而什么时候该使用子元素。
+        我的经验是在 HTML 中，属性用起来很便利，但是在 XML 中，您应该尽量避免使用属性。
+    如果信息感觉起来很像数据，那么请使用子元素吧。
+-->
+<note>
+<date>
+  <day>08</day>
+  <month>08</month>
+  <year>2008</year>
+</date>
+<to>George</to>
+<from>John</from>
+<heading>Reminder</heading>
+<body>Don't forget the meeting!</body>
+</note>
+<!--尽量将文本数据内容元素化。让内容更容易提取出来
+
+    避免 XML 属性？
+    因使用属性而引起的一些问题：
+    属性无法包含多重的值（元素可以）
+    属性无法描述树结构（元素可以）
+    属性不易扩展（为未来的变化）
+    属性难以阅读和维护
+    请尽量使用元素来描述数据。而仅仅使用属性来提供与数据无关的信息。
+    不要做这样的蠢事（这不是 XML 应该被使用的方式）：
+-->
+<messages>
+  <note id="501">
+    <to>George</to>
+    <from>John</from>
+    <heading>Reminder</heading>
+    <body>Don't forget the meeting!</body>
+  </note>
+  <note id="502">
+    <to>John</to>
+    <from>George</from>
+    <heading>Re: Reminder</heading>
+    <body>I will not</body>
+  </note> 
+</messages>
+<!--
+    有时候会向元素分配 ID 引用。
+这些 ID 索引可用于标识 XML 元素.它起作用的方式与 HTML 中 ID 属性是一样的。
+    ID 仅仅是一个标识符，用于标识不同的便签。
+它并不是便签数据的组成部分。
+    在此我们极力向您传递的理念是： 
+元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。
+-->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<note>
+<to>George</to>
+<from>John</from>
+<heading>Reminder</heading>
+<body>Don't forget the meeting!</body>
+</note>
+<!--
+形式良好的 XML 文档
+    “形式良好”或“结构良好”的 XML 文档拥有正确的语法。
+    “形式良好”（Well Formed）的 XML 文档会遵守前几章介绍过的 XML 语法规则：
+        XML 文档必须有根元素
+        XML 文档必须有关闭标签
+        XML 标签对大小写敏感
+        XML 元素必须被正确的嵌套
+        XML 属性必须加引号
+-->
+<!--XML 错误会终止您的程序
+    XML 文档中的错误会终止你的 XML 程序。
+    W3C 的 XML 规范声明：如果 XML 文档存在错误，那么程序就不应当继续处理这个文档。理由是，XML 软件应当轻巧，快速，具有良好的兼容性。
+    如果使用 HTML，创建包含大量错误的文档是有可能的（比如你忘记了结束标签）。其中一个主要的原因是 HTML 浏览器相当臃肿，兼容性也很差，并且它们有自己的方式来确定当发现错误时文档应该显示为什么样子。
+    使用 XML 时，这种情况不应当存在。
+-->
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+<html>
+<body>
+  <h2>My CD Collection</h2>
+  <table border="1">
+    <tr>
+      <th align="left">Title</th>
+      <th align="left">Artist</th>
+    </tr>
+    <xsl:for-each select="catalog/cd">
+    <tr>
+      <td><xsl:value-of select="title"/></td>
+      <td><xsl:value-of select="artist"/></td>
+    </tr>
+    </xsl:for-each>
+  </table>
+</body>
+</html>
+</xsl:template>
+
+</xsl:stylesheet>
+<!--命名空间的实际应用
+    当开始使用 XSL 时，您不久就会看到实际使用中的命名空间。
+    XSL 样式表用于将 XML 文档转换为其他格式，比如 HTML。
+    如果您仔细观察下面的这个 XSL 文档，就会看到大多数的标签是HTML标签。
+    非 HTML 的标签都有前缀 xsl，并由此命名空间标示："http://www.w3.org/1999/XSL/Transform"：
+-->
+<!--
+CDATA
+术语 CDATA 指的是不应由 XML 解析器进行解析的文本数据（Unparsed Character Data）。
+在 XML 元素中，"<" 和 "&" 是非法的。
+"<" 会产生错误，因为解析器会把该字符解释为新元素的开始。
+"&" 也会产生错误，因为解析器会把该字符解释为字符实体的开始。
+某些文本，比如 JavaScript 代码，包含大量 "<" 或 "&" 字符。为了避免错误，可以将脚本代码定义为 CDATA。
+CDATA 部分中的所有内容都会被解析器忽略。
+CDATA 部分由 "<![CDATA[" 开始，由 "]]>" 结束：
+
+
+解析器会忽略 CDATA 部分中的所有内容。
+-->
+<script>
+<![CDATA[
+function matchwo(a,b)
+{
+if (a < b && a < 0) then
+  {
+  return 1;
+  }
+else
+  {
+  return 0;
+  }
+}
+]]>
+</script>
+<!--关于 CDATA 部分的注释：
+CDATA 部分不能包含字符串 "]]>"。也不允许嵌套的 CDATA 部分。
+标记 CDATA 部分结尾的 "]]>" 不能包含空格或折行。
+-->
