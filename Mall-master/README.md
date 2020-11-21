@@ -46,8 +46,6 @@
 
 <img src="https://nanrailgun.gitee.io/mall/3DADCC3FD9B76227C3F392324288BD33.jpg" width = "500" height = "800" alt="图片名称" align=center />
 
-<img src="https://nanrailgun.gitee.io/mall/9D9CD7076F2C22AF6D904DB653071964.jpg" width = "500" height = "800" alt="图片名称" align=center />
-
 <img src="https://nanrailgun.gitee.io/mall/B6CF91EF09CD3BA82D5621C0F76249F7.jpg" width = "500" height = "800" alt="图片名称" align=center />
 
 <img src="https://nanrailgun.gitee.io/mall/04C055278EDF8C7E7BE6373ACCE67842.jpg" width = "500" height = "800" alt="图片名称" align=center />
